@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kyle Malone</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      class="modal__langs"
+      src="https://kit.fontawesome.com/c68453a286.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "MgpHzqXfS4H0ju_GF",
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+      <nav>
+        <figure class="name__logo">
+          <img
+            id="personal-logo"
+            src="./assets/personal__logo__clear.png"
+            alt="personal logo"
+          />
+          <!-- <h1 class="name">Kyle Malone</h1> -->
+        </figure>
+        <ul class="nav__link--list">
+          <li class="nav__link">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover--effect link__hover--effect--black"
+              >About</a
+            >
+          </li>
+          <li class="nav__link">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover--effect link__hover--effect--black"
+              >Projects</a
+            >
+          </li>
+          <li class="nav__link">
+            <a
+              href="#"
+              onclick="toggleModal()"
+              class="nav__link--anchor link__hover--effect link__hover--effect--black"
+              >Contact</a
+            >
+          </li>
+
+          <li class="nav__link" onclick="toggleContrast()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover--effect link__hover--effect--grey click"
+              ><i class="fa-solid fa-circle-half-stroke"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <header class="header">
+        <div class="header__content">
+          <h1 class="title">Hey</h1>
+          <h1 class="title__sec purple">I'm Kyle.</h1>
+          <p class="header__para">
+            I'm a <b class="purple">Frontend Software Engineer</b> with a strong
+            passionng web applications with great user experiences.
+            <br />
+            Here's a bit more
+            <a href="https://www.jw.org/en/" target="_blank"
+              ><b class="purple">about me.</b></a
+            >
+          </p>
+          <div class="social__list">
+            <a href="#" target="_blank" class="social__link click">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://github.com/kmalo41"
+              target="_blank"
+              class="social__link click"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a
+              href="./assets/David Bragg Resume.pdf"
+              target="_blank"
+              class="social__link click"
+            >
+              <i class="fa-solid fa-file-lines"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+      <button class="mail__btn click" onclick="toggleModal()">
+        <i class="fa-solid fa-envelope"></i>
+      </button>
+      <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>
+      </a>
+      <div class="modal">
+        <div class="modal__half modal__about">
+          <h3 class="modal__title modal__title--about">
+            Here's a bit about me.
+          </h3>
+          <h4 class="modal__subtitle modal__subtitle--about">
+            Frontend Software Engineer
+          </h4>
+          <p class="modal__para">
+            I'm a 21 year-old Australian
+            <b class="purple">frontend software engineer</b> with experience
+            developing websitesch companies like Google and Canva.
+            <br />
+            <br />
+            I currently solve extremely difficult engineering problems every day
+            with React, TypeScript and MobX in Canva's Video team.
+          </p>
+          <div class="modal__lang">
+            <figure class="modal__langs">
+              <img
+                class="modal__langs--img"
+                src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
+                alt=""
+              />
+              <span class="lang__name">HTML</span>
+            </figure>
+            <figure class="modal__langs">
+              <img
+                class="modal__langs--img"
+                src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
+                alt=""
+              />
+              <span class="lang__name">CSS</span>
+            </figure>
+            <figure class="modal__langs">
+              <img
+                class="modal__langs--img"
+                src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
+                alt=""
+              />
+              <span class="lang__name">JavaScript</span>
+            </figure>
+            <figure class="modal__langs">
+              <img
+                class="modal__langs--img"
+                src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
+                alt=""
+              />
+              <span class="lang__name">TypeScript</span>
+            </figure>
+          </div>
+        </div>
+        <div class="modal__half modal__contact">
+          <i class="fa-solid fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
+          <h4 class="modal__subtitle modal__subtitle--contact">
+            I'm currently open to new opportunities.
+          </h4>
+          <form onsubmit="contact(event)" id="contact__form">
+            <div class="form__item">
+              <label class="form__item--label">Name</label>
+              <input type="text" name="user_name" class="input" required />
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Email</label>
+              <input type="text" name="user_email" class="input" required />
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Message</label>
+              <textarea
+                type="text"
+                name="message"
+                class="input"
+                required
+              ></textarea>
+            </div>
+            <button id="contact__submit" class="form__submit">
+              Send it my way
+            </button>
+          </form>
+          <div class="modal__overlay modal__overlay--loading">
+            <i class="fa-solid fa-spinner"></i>
+          </div>
+          <div class="modal__overlay modal__overlay--success">
+            Thanks for the message!
+          </div>
+        </div>
+      </div>
+      <img src="./assets/semi circle.svg" alt="" class="shape shape--0">  
+      <img src="./assets/circle.svg" alt="" class="shape shape--1">  
+      <img src="./assets/squiggly.svg" alt="" class="shape shape--2">  
+      <img src="./assets/circle.svg" alt="" class="shape shape--3">  
+      <img src="./assets/triangle.svg" alt="" class="shape shape--4">  
+      <img src="./assets/circle.svg" alt="" class="shape shape--5">  
+      <img src="./assets/squiggly.svg" alt="" class="shape shape--6">  
+      <img src="./assets/semi circle.svg" alt="" class="shape shape--7">  
+      <img src="./assets/triangle.svg" alt="" class="shape shape--8">  
+    </section>
+    <section id="projects">
+      <div class="container">
+        <div class="row">
+          <h1 class="section__title">
+            Here are some of my <span class="purple">projects</span>
+          </h1>
+          <ul class="project__list">
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./assets/google mockup.png"
+                  class="project__img"
+                  alt="..."
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__des">
+                  <h3 class="project__des--title">Car Sales Projects</h3>
+                  <h4 class="project__des--sub-title">
+                    HTML, CSS, JavaScript
+                    <p class="project__des--para">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Dolores, eligendi error. Adipisci temporibus voluptate
+                      reprehenderit quis, veniam quam minima in neque tenetur
+                      quibusdam, asperiores consequuntur cum eos natus! Minus,
+                      consectetur.
+                    </p>
+                    <div class="project__des--links">
+                      <a
+                        href="https://github.com/kmalo41"
+                        target="_blank"
+                        class="project__des--link"
+                      >
+                        <i class="fa-brands fa-github"></i>
+                      </a>
+                      <a href="#" target="_blank" class="project__des--link">
+                        <i class="fa-solid fa-link"></i>
+                      </a>
+                    </div>
+                  </h4>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./assets/google mockup.png"
+                  class="project__img"
+                  alt="..."
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__des">
+                  <h3 class="project__des--title">Car Sales Projects</h3>
+                  <h4 class="project__des--sub-title">
+                    HTML, CSS, JavaScript
+                    <p class="project__des--para">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Dolores, eligendi error. Adipisci temporibus voluptate
+                      reprehenderit quis, veniam quam minima in neque tenetur
+                      quibusdam, asperiores consequuntur cum eos natus! Minus,
+                      consectetur.
+                    </p>
+                    <div class="project__des--links">
+                      <a
+                        href="https://github.com/kmalo41"
+                        target="_blank"
+                        class="project__des--link"
+                      >
+                        <i class="fa-brands fa-github"></i>
+                      </a>
+                      <a href="#" target="_blank" class="project__des--link">
+                        <i class="fa-solid fa-link"></i>
+                      </a>
+                    </div>
+                  </h4>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="row footer__row">
+          <figure>
+            <a href="#"
+              ><img
+                class="footer__logo--img"
+                class="modal__langs"
+                src="./assets/personal__logo__invert.png"
+                alt="perosnal logo"
+            /></a>
+          </figure>
+          <div class="footer__social--list">
+            <a
+              href="https://github.com/kmalo41"
+              target="_blank"
+              class="footer__social--link link__hover--effect link__hover--effect--white"
+            >
+              Github
+            </a>
+            <a
+              href="https://es.pornhub.com/model/anissamiller1"
+              target="_blank"
+              class="footer__social--link link__hover--effect link__hover--effect--white"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://pimpbunny.com/onlyfans-creators/whosbonnieandclyde-leaks/"
+              target="_blank"
+              class="footer__social--link link__hover--effect link__hover--effect--white"
+            >
+              Resume
+            </a>
+            <a
+              href="https://www.pornpics.com/?q=nerdy+b"
+              target="_blank"
+              class="footer__social--link link__hover--effect link__hover--effect--white"
+            >
+              Contact Me
+            </a>
+          </div>
+          <div class="footer__copyright">Copyright © 2026 Kyle Malone</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
